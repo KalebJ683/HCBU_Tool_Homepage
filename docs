@@ -1,1 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NSU Financial Aid And Housing Portal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section with Profile Icon and Title -->
+        <header class="header">
+            <img src="{{ url_for('static', filename='images/profile_icon.png') }}" alt="Profile Icon" class="profile-icon">
+            <div class="spartan-logo">
+                <img src="{{ url_for('static', filename='images/spartan_logo.png') }}" alt="Spartan Logo" class="logo">
+                <h1>NSU Financial Aid And Housing Assistant Tool Portal</h1>
+            </div>
+        </header>
 
+        <!-- Welcome Section -->
+        <section class="user-welcome">
+            <h2>Welcome, "Name" to Your Portal</h2>
+        </section>
+
+       <!-- Image Carousel -->
+       <section class="carousel">
+        <div class="carousel-container">
+            <!-- Image items go here -->
+            <img src="{{ url_for('static', filename='images/image1.jpg') }}" alt="Image 1" class="carousel-item">
+            <img src="{{ url_for('static', filename='images/image2.jpg') }}" alt="Image 2" class="carousel-item">
+            <img src="{{ url_for('static', filename='images/image3.jpg') }}" alt="Image 3" class="carousel-item">
+            <img src="{{ url_for('static', filename='images/image4.jpg') }}" alt="Image 4" class="carousel-item">
+            <img src="{{ url_for('static', filename='images/image5.jpg') }}" alt="Image 5" class="carousel-item">
+            <img src="{{ url_for('static', filename='images/image6.jpg') }}" alt="Image 6" class="carousel-item">
+            
+            <!-- Duplicate images to make the loop smooth -->
+            <img src="{{ url_for('static', filename='images/image1.jpg') }}" alt="Image 1" class="carousel-item">
+            <img src="{{ url_for('static', filename='images/image2.jpg') }}" alt="Image 2" class="carousel-item">
+            <img src="{{ url_for('static', filename='images/image3.jpg') }}" alt="Image 3" class="carousel-item">
+            <img src="{{ url_for('static', filename='images/image4.jpg') }}" alt="Image 4" class="carousel-item">
+            <img src="{{ url_for('static', filename='images/image5.jpg') }}" alt="Image 5" class="carousel-item">
+            <img src="{{ url_for('static', filename='images/image6.jpg') }}" alt="Image 6" class="carousel-item">
+
+            <img src="{{ url_for('static', filename='images/image1.jpg') }}" alt="Image 1" class="carousel-item">
+            <img src="{{ url_for('static', filename='images/image2.jpg') }}" alt="Image 2" class="carousel-item">
+            <img src="{{ url_for('static', filename='images/image3.jpg') }}" alt="Image 3" class="carousel-item">
+
+
+        </div>
+    </section>
+
+ <!-- Main Navigation (Side menu) -->
+<nav class="side-nav">
+    <ul>
+        <!-- Housing Dropdown -->
+        <li class="dropdown">
+            <a href="#">Housing</a>
+            <div class="dropdown-content">
+                <a href="#">Housing Alternatives</a>
+                <a href="#">Housing Request Form</a>
+                <a href="#">Roommate Change</a>
+                <a href="#">Maintenance</a>
+            </div>
+        </li>
+        
+        <!-- Financial Aid Dropdown -->
+        <li class="dropdown">
+            <a href="#">Financial Aid</a>
+            <div class="dropdown-content">
+                <a href="#">Banking Information</a>
+                <a href="#">Tax Form</a>
+            </div>
+        </li>
+        
+        <!-- Scholarships Dropdown -->
+        <li class="dropdown">
+            <a href="#">Scholarships</a>
+            <div class="dropdown-content">
+                <a href="#">Update Scholarship Profile</a>
+                <a href="#">Update Resume</a>
+            </div>
+        </li>
+
+        <!-- Support Dropdown -->
+        <li class="dropdown">
+            <a href="#">Support</a>
+            <div class="dropdown-content">
+                <a href="https://www.nsu.edu/its/its-student-support" target="_blank">External Support Link</a>
+            </div>
+        </li>
+
+        <!-- FAQ Dropdown -->
+        <li class="dropdown">
+            <a href="#">FAQ</a>
+            <div class="dropdown-content">
+                <a href="#">Frequently Asked Questions</a>
+            </div>
+        </li>
+    </ul>
+</nav>
+
+
+        <!-- Symbol Boxes for Housing, Financial Aid, and Scholarships -->
+        <section class="symbol-boxes">
+            <div class="box">
+                <img src="{{ url_for('static', filename='images/housing_icon.png') }}" alt="Housing Icon">
+                <p class="housing-text">Housing</p> <!-- Added class to target the word "Housing" -->
+                <p>Name: Spartan suites</p>
+                <p>Location: 2601 Corprew Ave, Norfolk, VA 23504</p>
+                <p>Room Number: 4014B</p>
+            
+                <!-- Add image for housing assignment below the text -->
+                <img src="{{ url_for('static', filename='images/housing_assignment.jpg') }}" alt="Housing Assignment" style="width: 300px; height: 300px;">
+            </div>
+            <div class="box">
+                <img src="{{ url_for('static', filename='images/dollar_icon.png') }}" alt="Financial Aid Icon">
+                <p class="financial-aid-text">Financial Aid</p> <!-- Added class to target the word "Financial Aid" -->
+                <p>You owe: $5,000 for this semester's tuition.</p>
+                <!-- Progress Circle -->
+                <canvas id="progressCircle" width="150" height="150"></canvas>
+                <p>Progress: $15,000 / $20,000</p>
+            </div>
+
+<!-- Scholarships section -->
+<div class="box">
+    <img src="{{ url_for('static', filename='images/graduation_cap_icon.png') }}" alt="Scholarships Icon">
+    <p class="scholarships-text">Scholarships</p>
+
+    <!-- Existing scholarship entries with checkboxes -->
+    <div id="scholarshipList1" class="scholarship-list">
+        <div class="scholarship-item">
+            <input type="checkbox" id="scholarship1" class="scholarship-checkbox">
+            <label for="scholarship1">NSU Merit Scholarship</label>
+        </div>
+        <div class="scholarship-item">
+            <input type="checkbox" id="scholarship2" class="scholarship-checkbox">
+            <label for="scholarship2">NSU Academic Excellence Scholarship</label>
+        </div>
+        <div class="scholarship-item">
+            <input type="checkbox" id="scholarship3" class="scholarship-checkbox">
+            <label for="scholarship3">NSU Community Leadership Scholarship</label>
+        </div>
+        <div class="scholarship-item">
+            <input type="checkbox" id="scholarship4" class="scholarship-checkbox">
+            <label for="scholarship4">NSU Sports Scholarship</label>
+        </div>
+    </div>
+
+    <!-- Button to apply for selected scholarships -->
+    <button id="applyButton" onclick="applyForScholarships()">Apply for Selected Scholarships</button>
+
+    <!-- Animation placeholder for the check animation (GIF) -->
+    <div id="checkAnimation" class="check-animation">
+        <img src="{{ url_for('static', filename='images/check_animation.gif') }}" alt="Check Animation" class="check-img" style="width: 300px; height: 300px;">
+    </div>
+
+    <!-- Text message shown after applying -->
+    <div id="applyMessage" class="apply-message" style="display:none;">
+        <p>You have applied for the selected scholarships!</p>
+    </div>
+
+    <!-- New set of scholarships (hidden initially) -->
+    <div id="scholarshipList2" class="scholarship-list" style="display:none;">
+        <div class="scholarship-item">
+            <input type="checkbox" id="scholarship5" class="scholarship-checkbox">
+            <label for="scholarship5">NSU STEM Scholarship</label>
+        </div>
+        <div class="scholarship-item">
+            <input type="checkbox" id="scholarship6" class="scholarship-checkbox">
+            <label for="scholarship6">NSU Art and Design Scholarship</label>
+        </div>
+        <div class="scholarship-item">
+            <input type="checkbox" id="scholarship7" class="scholarship-checkbox">
+            <label for="scholarship7">NSU Music Scholarship</label>
+        </div>
+        <div class="scholarship-item">
+            <input type="checkbox" id="scholarship8" class="scholarship-checkbox">
+            <label for="scholarship8">NSU Science Scholarship</label>
+        </div>
+    </div>
+
+    <!-- New button to ask if the user wants to apply for more -->
+    <button id="applyMoreButton" onclick="applyForMoreScholarships()" style="display:none;">Do you want to apply for more?</button>
+
+    <!-- Message if the user doesn't qualify for more scholarships (hidden initially) -->
+    <div id="noMoreScholarshipsMessage" class="no-more-message" style="display:none;">
+        <p>You do not qualify for any more scholarships.</p>
+    </div>
+</div>
+
+
+
+        </section>
+
+<!-- Recent Announcements -->
+<section class="announcements">
+    <h3>Recent Announcements</h3>
+    <div class="announcements-container">
+        <ul class="announcements-list">
+            <!-- Announcement 1 -->
+            <div class="announcement-item">
+                <li>Financial aid disbursement begins Sept 15.</li>
+            </div>
+            <!-- Announcement 2 -->
+            <div class="announcement-item">
+                <li>Housing application for Spring opens Oct 1.</li>
+            </div>
+            <!-- Announcement 3 -->
+            <div class="announcement-item">
+                <li>Scholarship workshops every Tuesday at 5 PM.</li>
+            </div>
+            <!-- Announcement 4 -->
+            <div class="announcement-item">
+                <li>NSU winter break begins Dec 15.</li>
+            </div>
+            <!-- Announcement 5 -->
+            <div class="announcement-item">
+                <li>Fall semester grades will be available on Dec 20.</li>
+            </div>
+            <!-- Announcement 6 -->
+            <div class="announcement-item">
+                <li>Campus library extended hours for finals week.</li>
+            </div>
+            <!-- Announcement 7 -->
+            <div class="announcement-item">
+                <li>Application deadline for Spring semester is Nov 30.</li>
+            </div>
+            <!-- Announcement 8 -->
+            <div class="announcement-item">
+                <li>On-campus housing application deadline for Spring is Nov 15.</li>
+            </div>
+            <!-- Announcement 9 -->
+            <div class="announcement-item">
+                <li>NSU Career Fair on Jan 15.</li>
+            </div>
+            <!-- Announcement 10 -->
+            <div class="announcement-item">
+                <li>NSU welcomes new students for Spring semester on Jan 20.</li>
+            </div>
+            <!-- Announcement 11 -->
+            <div class="announcement-item">
+                <li>Late registration period ends on Jan 22.</li>
+            </div>
+            <!-- Announcement 12 -->
+            <div class="announcement-item">
+                <li>NSU Spring sports season begins on Feb 1.</li>
+            </div>
+        </ul>
+    </div>
+</section>
+
+
+
+
+        <!-- Contact Information -->
+        <section class="contact">
+            <h3>Contact Information</h3>
+            <p>Phone: [(757) 823-8381]</p>
+            <p>Email: [mjbarnes@nsu.edu]</p>
+            <p>Address: [Norfolk State University
+                700 Park Avenue
+                Norfolk, VA 23504]</p>
+            <p>Office Location: [Student Services Center, Suite 211]</p>
+        </section>
+    </div>
+
+    <script>
+        var ctx = document.getElementById('progressCircle').getContext('2d');
+        var progressCircle = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Progress', 'Remaining'],
+                datasets: [{
+                    label: 'Financial Aid Progress',
+                    data: [15000, 5000], // $15,000 complete, $5,000 remaining
+                    backgroundColor: ['#4CAF50', '#D3D3D3'], // Green for completed, grey for remaining
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(tooltipItem) {
+                                return '$' + tooltipItem.raw.toLocaleString();
+                            }
+                        }
+                    }
+                },
+                cutout: '70%' // Make it look like a progress circle
+            }
+        });
+    </script>
+
+    <script>
+        // Track the number of clicks for the "Do you want to apply for more?" button
+        let applyForMoreClickCount = 0;
+        
+        // Function to handle the "Apply for Selected Scholarships" button click (first set)
+        function applyForScholarships() {
+            // Show the check animation (GIF)
+            document.getElementById("checkAnimation").style.display = "block";
+            
+            // Simulate the "check" animation
+            setTimeout(function() {
+                // Hide the current set of scholarships (first set)
+                document.getElementById("scholarshipList1").style.display = "none";
+        
+                // Show the success message
+                document.getElementById("applyMessage").style.display = "block";
+        
+                // Show the "Apply for More" button
+                document.getElementById("applyMoreButton").style.display = "block";
+            }, 1000); // Wait for the animation to complete before switching scholarships
+        }
+        
+        // Function to handle the "Do you want to apply for more?" button click
+        function applyForMoreScholarships() {
+            // Increment the counter for clicks
+            applyForMoreClickCount++;
+        
+            // Hide the animation and text message
+            document.getElementById("checkAnimation").style.display = "none";
+            document.getElementById("applyMessage").style.display = "none";
+        
+            // Hide the "Apply for More" button
+            document.getElementById("applyMoreButton").style.display = "none";
+        
+            // Check the click count
+            if (applyForMoreClickCount === 1) {
+                // Show the new scholarships (second set)
+                document.getElementById("scholarshipList2").style.display = "block";
+                
+                // Move the "Apply for Selected Scholarships" button to the bottom
+                document.getElementById("applyButton").style.display = "block";  // Ensures it's visible again
+            } else {
+                // If it's the second click, show the "You do not qualify for any more scholarships" message
+                document.getElementById("noMoreScholarshipsMessage").style.display = "block";
+            }
+        }
+        </script>
+        
+        
+        
+        
+    
+</body>
+</html>
