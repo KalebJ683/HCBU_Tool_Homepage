@@ -8,13 +8,25 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write  # Allow write access to repository contents
-      id-token: write   # Allow write access to the ID token (required for deployment)
-
+    
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v2
+        
+      - name: Set up Node.js (if you're using it for build processes, like if you're using a static site generator)
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'  # Use your version of Node.js
+        
+      - name: Install dependencies
+        run: |
+          npm install  # If you're using npm for static site generation
 
-      - name: Setup Pages
+      - name: Build website
+        run: |
+          npm run build  # Adjust if you're using any build system (e.g., for Hugo, Jekyll, etc.)
+
+      - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
+        with:
+          branch: gh-pages  # This can be the branch you want the website to be deployed to
