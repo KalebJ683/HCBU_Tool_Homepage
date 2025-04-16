@@ -4,7 +4,7 @@ body {
     padding: 0;
 
         /* Correct background image CSS */
-        background-image: url("../images/background.jpg");  
+        background-image: url("/Kalebj689/HCBU_Tool_Homepage/static/images/background.jpg");  
         background-size: cover;  /* Ensure the image covers the entire page */
         background-position: center center; /* Centers the background */
         background-repeat: no-repeat;  /* Prevents the image from repeating */
