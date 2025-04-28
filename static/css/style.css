@@ -2,7 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: rgb(255, 253, 208);
+    background-color: #4CAF50;
         /* Correct background image CSS */
         background-image: url("HCBU_Tool_Homepage/static/images/background.jpg");
         background-size: cover;  /* Ensure the image covers the entire page */
@@ -15,7 +15,7 @@ body {
 .container {
     width: 80%;
     margin: 0 auto;
-    background-color: white;
+    background-color: rgb(255, 253, 208);
     padding: 20px;
     border-radius: 8px;
     opacity: 0.9;  /* Optional: Add slight transparency to content box */
